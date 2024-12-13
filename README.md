@@ -8,3 +8,8 @@
 
 // Destrcturing the props...??
 // use of optional chaining("?") in destrcturing..?
+
+# need to check every time the Flow graph for the data Comming from Live Data
+
+// If we use link tag in router linking child components gets refreshes
+// If we use anchor tag in router whole page gets reloaded
