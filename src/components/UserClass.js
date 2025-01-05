@@ -1,5 +1,6 @@
 // Class Based component
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClasss extends React.Component{
     constructor(props){
@@ -27,6 +28,13 @@ class UserClasss extends React.Component{
         const  {name, location} = this.state.userInfo
         return (
             <div className="user-card">
+                <div>
+                    {/* using of useContext hook in Class based components where hooks are not present so we use them as components
+                        ".Consumer" is the power given by the react to us */}
+                    <UserContext.Consumer>
+                        {({loggedinUser}) => <h1>{loggedinUser}</h1>}
+                    </UserContext.Consumer>
+                </div>
                 <h2>Name:{name}</h2>
                 <h4>{location}</h4>
             </div>

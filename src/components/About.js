@@ -10,7 +10,7 @@ const About = () => {
             /> */}
             <UserClasss 
                 name = {
-                    "Yamini Sabbavarapu"
+                    "Bharath_Kanteeti"
                 }
             />
         </div>

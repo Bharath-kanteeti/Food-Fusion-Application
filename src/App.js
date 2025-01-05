@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"
+import React, { lazy, Suspense, useEffect, useState } from "react"
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header"
 import Body from "./components/Body"
@@ -8,15 +8,37 @@ import Cart from "./components/Cart"
 import Error from "./components/Error"
 import RestroMenu from "./components/RestroMenu"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
+import UserContext from "./utils/UserContext"
+
 //import Groccery from "./components/Groccery"
 
+// Chunking
+// Lazy loading
+// Dynamic Building
+// Code Splitting
+// On Demand Loading
+// Dynamic Import of a component
 const Groccery = lazy(() => import("./components/Groccery"))
 
 const AppLayout = () => {
+    
+    const [userName, setUserName] = useState()
+    
+    useEffect(() => {
+        const data = {
+            name:""
+        }
+        setUserName(data.name)
+    },[])
+
     return (
         <div>
-            <Header />
-            <Outlet/>
+            <UserContext.Provider value={{loggedinUser: userName, setUserName}}>
+                <UserContext.Provider value={{loggedinUser: "Bharath"}}>
+                    <Header/>
+                </UserContext.Provider>
+                <Outlet/>
+            </UserContext.Provider>
         </div>
     )
 }
