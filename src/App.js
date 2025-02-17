@@ -9,6 +9,8 @@ import Error from "./components/Error"
 import RestroMenu from "./components/RestroMenu"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
 import UserContext from "./utils/UserContext"
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
 
 //import Groccery from "./components/Groccery"
 
@@ -32,14 +34,18 @@ const AppLayout = () => {
     },[])
 
     return (
-        <div>
-            <UserContext.Provider value={{loggedinUser: userName, setUserName}}>
-                <UserContext.Provider value={{loggedinUser: "Bharath"}}>
-                    <Header/>
+        // Provider is a component that makes the Redux store available to any nested components that have been wrapped in the connect() function.
+        // Provider gives redux available to all the components in the application as of now which is much similar to the userContext
+        <Provider store={appStore}>
+            <div>
+                <UserContext.Provider value={{loggedinUser: userName, setUserName}}>
+                    <UserContext.Provider value={{loggedinUser: "Bharath"}}>
+                        <Header/>
+                    </UserContext.Provider>
+                    <Outlet/>
                 </UserContext.Provider>
-                <Outlet/>
-            </UserContext.Provider>
-        </div>
+            </div>
+        </Provider>
     )
 }
 
