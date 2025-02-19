@@ -35,7 +35,9 @@ class UserClasss extends React.Component{
                         {({loggedinUser}) => <h1>{loggedinUser}</h1>}
                     </UserContext.Consumer>
                 </div>
-                <h2>Name:{name}</h2>
+                <h2 className="text-xl">Name: {name}</h2>
+                <p>Ph No: +91 9347026605</p>
+                <p>Emali: bharathkanteeti@gmail.com</p>
                 <h4>{location}</h4>
             </div>
         )
