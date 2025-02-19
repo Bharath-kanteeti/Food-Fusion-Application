@@ -15,6 +15,7 @@ const ItemList = (props) => {
         <div>
             {items.map((item) =>(
                 <div 
+                data-testid="itemList"
                 key = {item.card.info.id} 
                 className="m-2 p-2 border-b-[1px] border-black shadow-lg flex text-left justify-between">
                     <div>

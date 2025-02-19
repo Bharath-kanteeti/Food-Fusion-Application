@@ -28,7 +28,7 @@ const Body = () =>{
     
     //https://corsproxy.io/?
     //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants) //--- > To check data flow from live
-    liveData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    const liveData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setlistofRestro(liveData)
     setfilteredRestaurant(liveData)
   }
@@ -45,21 +45,21 @@ return listofRestro?.length === 0 ? (
 ) : (
   <div className="body">
             <div className="filter m-4 p-4">
-              <input type="text" className="border border-solid border-black mx-2 px-1"
+              <input type="text" data-testid = "search-text" className="border border-solid border-black mx-2 px-1"
                 value={searchText}
                 onChange={(event) => {
                   setsearchText(event.target.value)
                 }}
                 />
 
-              <button className="bg-gray-200 px-2 text-center py-0.5 rounded-lg mr-1 " onClick={() => {
+              <button data-testid = "search-btn" className="bg-gray-200 px-2 text-center py-0.5 rounded-lg mr-1 " onClick={() => {
                 const filtred = listofRestro.filter((res) => {
                   return res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
                 })
                 setfilteredRestaurant(filtred)
               }}>Search</button>
 
-              <button className="bg-gray-200 px-2 text-center py-0.5 rounded-lg" onClick={()=>{
+              <button data-textid = "rated-restro" className="bg-gray-200 px-2 text-center py-0.5 rounded-lg" onClick={()=>{
                 // need to write filter logic acc to ratings
                 const filteredList =  listofRestro.filter(
                   res => res.info.avgRatingString > 4.3

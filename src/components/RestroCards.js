@@ -14,7 +14,7 @@ const RestroCards = (props) => {
 
     const {loggedinUser} = useContext(UserContext);
       return(
-          <div className="m-4 p-4 w-52 bg-gray-100 hover:bg-gray-200 rounded-lg">
+          <div data-testid = "restro-cards" className="m-4 p-4 w-52 bg-gray-100 hover:bg-gray-200 rounded-lg">
               <img src={CARD_URL
                             + cloudinaryImageId
                     } className="rounded-lg"/>
